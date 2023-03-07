@@ -1,11 +1,10 @@
-import Enums.ConsoleCommandType;
+import enums.ConsoleCommandType;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args)  {
         Scanner scanner = new Scanner(System.in);
         StepTracker stepTracker = new StepTracker(scanner);
         while (true) {

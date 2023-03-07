@@ -1,7 +1,3 @@
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import java.util.Scanner;
 
 public class StepTracker {
@@ -56,7 +52,7 @@ public class StepTracker {
     }
 
 
-    public void printStatistic() throws IOException {
+    public void printStatistic()  {
         System.out.println("Введите номер месяца от 1 до 12 включительно");
         int month = scanner.nextInt();
         if (checkMonth(month)) {
@@ -64,13 +60,13 @@ public class StepTracker {
             return;
         }
         MonthData monthData = monthToData[month - IDX];
-        monthData.printDaysAndStepsFromMonth(monthData.days); // количество пройденных шагов по дням;
-        System.out.println(monthData.sumStepsFromMonth(monthData.days) + " - общее количество шагов за месяц");
-        System.out.println(monthData.maxSteps(monthData.days) + " - максимальное пройденное количество шагов в месяце");
-        System.out.println((monthData.sumStepsFromMonth(monthData.days) / 30) + " - среднее количество шагов");
-        System.out.println(converter.convertToKm(monthData.sumStepsFromMonth(monthData.days)) + " - пройденная дистанция (в км)");
-        System.out.println(converter.convertStepsToKilocalories(monthData.sumStepsFromMonth(monthData.days)) + " - количество сожжённых килокалорий");
-        System.out.println(monthData.bestSeries(monthData.days, goalByStepsPerDay) + " - лучшая серия");
+        monthData.printDaysAndStepsFromMonth(); // количество пройденных шагов по дням;
+        System.out.println(monthData.sumStepsFromMonth() + " - общее количество шагов за месяц");
+        System.out.println(monthData.maxSteps() + " - максимальное пройденное количество шагов в месяце");
+        System.out.println((monthData.sumStepsFromMonth() / 30) + " - среднее количество шагов");
+        System.out.println(converter.convertToKm(monthData.sumStepsFromMonth()) + " - пройденная дистанция (в км)");
+        System.out.println(converter.convertStepsToKilocalories(monthData.sumStepsFromMonth()) + " - количество сожжённых килокалорий");
+        System.out.println(monthData.bestSeries( goalByStepsPerDay) + " - лучшая серия");
     }
 
     private boolean checkMonth(int value) {
@@ -85,9 +81,5 @@ public class StepTracker {
     private boolean checkSteps(int value) {
         return value <= 0;
     }
-
-
-
-
 
 }

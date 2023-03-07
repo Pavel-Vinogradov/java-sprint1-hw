@@ -1,9 +1,4 @@
-package Enums;
-
-import org.jetbrains.annotations.NotNull;
-
-import java.util.HashMap;
-import java.util.Map;
+package enums;
 
 public enum ConsoleCommandType {
     EXIT(0, "Выйти из приложения"),
@@ -16,7 +11,6 @@ public enum ConsoleCommandType {
 
     ConsoleCommandType(int value, String description) {
         this.value = value;
-
         this.description = description;
     }
 
@@ -26,15 +20,6 @@ public enum ConsoleCommandType {
 
     public String getLabel() {
         return description;
-    }
-
-    public static @NotNull Map<Integer, String> getMap() {
-
-        Map<Integer, String> map = new HashMap<>();
-        for (ConsoleCommandType commandType : ConsoleCommandType.values()) {
-            map.put(commandType.getValue(), commandType.getLabel());
-        }
-        return map;
     }
 
 }
